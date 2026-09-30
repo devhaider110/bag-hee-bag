@@ -1,0 +1,531 @@
+@import "tailwindcss";
+
+/* =========================================================
+   GLOBAL FOUNDATION
+========================================================= */
+
+:root {
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  color: #f5f5f5;
+  background: #050505;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  min-width: 320px;
+  max-width: 100%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  min-width: 320px;
+  max-width: 100%;
+  min-height: 100vh;
+
+  margin: 0;
+
+  background: #050505;
+  color: #f5f5f5;
+
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+#root {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+/* =========================================================
+   MEDIA — NEVER ESCAPE SCREEN
+========================================================= */
+
+img,
+svg,
+video,
+canvas,
+iframe {
+  max-width: 100%;
+}
+
+img,
+video {
+  height: auto;
+}
+
+img {
+  display: block;
+}
+
+video {
+  display: block;
+}
+
+iframe {
+  border: 0;
+}
+
+/* =========================================================
+   TEXT — PREVENT LONG CONTENT FROM BREAKING LAYOUT
+========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+a {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+input,
+textarea,
+select {
+  max-width: 100%;
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================================================
+   FORM ELEMENTS
+========================================================= */
+
+input,
+textarea,
+select {
+  min-width: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   TABLES
+========================================================= */
+
+table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+/*
+  Allows wide admin tables to remain usable.
+  Parent components can still use overflow-x-auto.
+*/
+.overflow-table {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+::selection {
+  background: rgba(212, 175, 55, 0.3);
+  color: white;
+}
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+:focus-visible {
+  outline: 2px solid rgba(228, 199, 107, 0.7);
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   LUXURY ANIMATIONS
+========================================================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.45;
+    transform: scale(1.08);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s ease-out both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out both;
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 5s ease-in-out infinite;
+}
+
+/* =========================================================
+   LUXURY UTILITY
+========================================================= */
+
+.gold-text {
+  background: linear-gradient(
+    100deg,
+    #b88a2d,
+    #f4df9b,
+    #d4af37,
+    #fff1b5,
+    #b88a2d
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+.luxury-border {
+  border: 1px solid rgba(212, 175, 55, 0.22);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.premium-shadow {
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.45),
+    0 0 60px rgba(212, 175, 55, 0.05);
+}
+
+/* =========================================================
+   RESPONSIVE SAFETY UTILITIES
+========================================================= */
+
+.full-width-safe {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.flex-safe {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.grid-safe {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.text-safe {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.no-horizontal-overflow {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.scroll-x-safe {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* =========================================================
+   MOBILE SAFE AREA
+========================================================= */
+
+.mobile-safe {
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+}
+
+/* =========================================================
+   ADMIN INPUT
+========================================================= */
+
+.admin-input {
+  width: 100%;
+  min-width: 0;
+
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  background: rgba(0, 0, 0, 0.4);
+
+  padding: 0.875rem 1rem;
+
+  color: white;
+  font-size: 0.875rem;
+
+  outline: none;
+
+  transition:
+    border-color 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.admin-input::placeholder {
+  color: #404040;
+}
+
+.admin-input:focus {
+  border-color: rgba(212, 175, 55, 0.4);
+
+  box-shadow:
+    0 0 0 3px rgba(212, 175, 55, 0.05);
+}
+
+.admin-input option {
+  background: #111;
+  color: white;
+}
+
+/* =========================================================
+   SMALL MOBILE — 320px to 374px
+========================================================= */
+
+@media (max-width: 374px) {
+  body {
+    font-size: 14px;
+  }
+
+  .mobile-safe {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .admin-input {
+    padding: 0.75rem 0.8rem;
+    border-radius: 0.8rem;
+    font-size: 0.8125rem;
+  }
+
+  /*
+    Prevent large decorative elements from creating
+    unexpected horizontal pressure.
+  */
+  .animate-float {
+    animation-duration: 6s;
+  }
+}
+
+/* =========================================================
+   NORMAL MOBILE — 375px to 639px
+========================================================= */
+
+@media (min-width: 375px) and (max-width: 639px) {
+  .mobile-safe {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .mobile-safe {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .mobile-safe {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1280px) {
+  .mobile-safe {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================================
+   TOUCH DEVICES
+========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print {
+  body {
+    background: white;
+    color: black;
+    overflow: visible;
+  }
+
+  #root {
+    overflow: visible;
+  }
+}
